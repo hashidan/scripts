@@ -1,0 +1,9 @@
+#!/bin/zsh
+sudo echo enabled > /sys/bus/usb/devices/usb1/power/wakeup
+sudo echo enabled > /sys/bus/usb/devices/usb2/power/wakeup
+sudo echo enabled > /sys/bus/usb/devices/usb3/power/wakeup
+sudo echo enabled > /sys/bus/usb/devices/usb4/power/wakeup
+sudo echo enabled > /sys/bus/usb/devices/usb5/power/wakeup
+sudo echo enabled > /sys/bus/usb/devices/usb6/power/wakeup
+sudo echo enabled > /sys/bus/usb/devices/usb7/power/wakeup
+sudo echo enabled > /sys/bus/usb/devices/usb8/power/wakeup

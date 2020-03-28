@@ -2,7 +2,7 @@
 
 SEARCH_ENGINE="https://duckduckgo.com/?q="
 
-q="$(echo | dmenu -l 0 -p "Search the Web:")"
+q="$(echo | dmenu -p "Search the Web:")"
 
 if [ -z "$q" ]; then
     exit 0

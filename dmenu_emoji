@@ -5,7 +5,7 @@
 # Must have xclip installed to even show menu.
 xclip -h 2>/dev/null || exit 1
 
-chosen=$(cut -d ';' -f1 ~/scripts/emojis | dmenu -i -l 20 | sed "s/ .*//")
+chosen=$(cut -d ';' -f1 ~/scripts/emojilist.txt | dmenu -i -l 20 | sed "s/ .*//")
 
 [ "$chosen" != "" ] || exit
 
@@ -14,5 +14,5 @@ if [ -n "$1" ]; then
 	xdotool key Shift+Insert
 else
 	echo "$chosen" | tr -d '\n' | xclip -selection clipboard
-	notify-send "'$chosen' copied to clipboard." &
+        notify-send "'$chosen' copied to clipboard." &
 fi

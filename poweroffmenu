@@ -1,12 +1,12 @@
 #!/bin/sh
 
-choices="shutdown\nreboot\nsuspend\nexit i3"
+choices="shutdown\nreboot\nsuspend\nexit wm"
 
-chosen=$(echo -e "$choices" | dmenu -i -p "Actions:")
+chosen=$(echo -e "$choices" | dmenu -l 4 -i -p "Actions:")
 
 case "$chosen" in
         shutdown) ~/scripts/prompt "Confirm shutdown" "sudo shutdown now" && notify-send "Shutting down...";;
         reboot) ~/scripts/prompt "Confirm reboot" "sudo reboot now" && notify-send "Rebooting now...";;
         suspend) sudo systemctl suspend && notify-send "Suspending...";;
-        exit\ i3) ~/scripts/prompt "Confirm exit" "i3-msg exit";;
+        exit\ wm) Confirm exit" "i3-msg exit; killall bspwm; killall dwm ;;
 esac

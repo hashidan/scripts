@@ -1,57 +1,38 @@
 #!/bin/bash
-#  ____ _____
-# |  _ \_   _|  Derek Taylor (DistroTube)
-# | | | || |    http://www.youtube.com/c/DistroTube
-# | |_| || |    http://www.gitlab.com/dwt1/
-# |____/ |_|
+#   _____   __                               __
+#  / ___ \ / /  ___  ___ _ ___  ___ _ ___   / /___   Hoang Seidel
+# / / _ `// _ \/ _ \/ _ `// _ \/ _ `// _ \ / // _ \  github.com/hashidan/
+# \ \_,_//_//_/\___/\_,_//_//_/\_, / \___//_/ \___/
+#  \___/                      /___/
 #
 # Dmenu script for editing some of my more frequently edited config files.
+# slightly copied from DistroTube
+# whatev
 
-
-declare options=("alacritty
-awesome
+declare options=("
 bash
-broot
 bspwm
 compton
-doom.d/config.el
-doom.d/init.el
 dunst
 dwm
-emacs.d/init.el
-herbstluftwm
 i3
 polybar
-qtile
 st
-stumpwm
 sxhkd
-termite
 vifm
 vim
-xmobar
-xmonad
 xresources
 zsh
 quit")
 
-choice=$(echo -e "${options[@]}" | dmenu -i -p 'Edit config file: ')
+choice=$(echo -e "${options[@]}" | dmenu -i -nb '#282828' -nf '#ebdbb2' -p 'Edit config file: ')
 
 case "$choice" in
 	quit)
 		echo "Program terminated." && exit 1
 	;;
-	alacritty)
-		choice="$HOME/.config/alacritty/alacritty.yml"
-	;;
-	awesome)
-		choice="$HOME/.config/awesome/rc.lua"
-	;;
 	bash)
 		choice="$HOME/.bashrc"
-	;;
-	broot)
-		choice="$HOME/.config/broot/conf.toml"
 	;;
 	bspwm)
 		choice="$HOME/.config/bspwm/bspwmrc"
@@ -59,56 +40,29 @@ case "$choice" in
 	compton)
 		choice="$HOME/.config/compton/compton.conf"
 	;;
-    doom.d/config.el)
-		choice="$HOME/.doom.d/config.el"
-	;;
-    doom.d/init.el)
-		choice="$HOME/.doom.d/init.el"
-	;;
 	dunst)
 		choice="$HOME/.config/dunst/dunstrc"
 	;;
 	dwm)
-		choice="$HOME/dwm/config.h"
-	;;
-	emacs.d/init.el)
-		choice="$HOME/.emacs.d/init.el"
-	;;
-	herbstluftwm)
-		choice="$HOME/.config/herbstluftwm/autostart"
+		choice="$HOME/github-clones/dwm_working_hoang/config.h"
 	;;
 	i3)
-		choice="$HOME/.i3/config"
+		choice="$HOME/.config/i3/config"
 	;;
 	polybar)
 		choice="$HOME/.config/polybar/config"
 	;;
-	qtile)
-		choice="$HOME/.config/qtile/config.py"
-	;;
 	st)
-		choice="$HOME/st/config.h"
-	;;
-	stumpwm)
-		choice="$HOME/.config/stumpwm/config"
+		choice="$HOME/config/st/config.h"
 	;;
 	sxhkd)
 		choice="$HOME/.config/sxhkd/sxhkdrc"
-	;;
-	termite)
-		choice="$HOME/.config/termite/config"
 	;;
 	vifm)
 		choice="$HOME/.config/vifm/vifmrc"
 	;;
 	vim)
 		choice="$HOME/.vimrc"
-	;;
-	xmobar)
-		choice="$HOME/.config/xmobar/xmobarrc2"
-	;;
-	xmonad)
-		choice="$HOME/.xmonad/xmonad.hs"
 	;;
 	xresources)
 		choice="$HOME/.Xresources"
@@ -120,4 +74,4 @@ case "$choice" in
 		exit 1
 	;;
 esac
-st -e nvim "$choice"
+st -e vim "$choice"

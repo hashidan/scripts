@@ -55,7 +55,7 @@ case "$choice" in
                 choice="$HOME/.config/polybar/config"
         ;;
         st)
-                choice="$HOME/config/st/config.h"
+                choice="$HOME/github-clones/st/config.h"
         ;;
         sxhkd)
                 choice="$HOME/.config/sxhkd/sxhkdrc"

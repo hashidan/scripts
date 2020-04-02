@@ -22,56 +22,64 @@ sxhkd
 vifm
 vim
 xresources
+xinit
+xprofile
 zsh
 quit")
 
 choice=$(echo -e "${options[@]}" | dmenu -i -nb '#282828' -nf '#ebdbb2' -p 'Edit config file: ')
 
 case "$choice" in
-	quit)
-		echo "Program terminated." && exit 1
-	;;
-	bash)
-		choice="$HOME/.bashrc"
-	;;
-	bspwm)
-		choice="$HOME/.config/bspwm/bspwmrc"
-	;;
-	compton)
-		choice="$HOME/.config/compton/compton.conf"
-	;;
-	dunst)
-		choice="$HOME/.config/dunst/dunstrc"
-	;;
-	dwm)
-		choice="$HOME/github-clones/dwm_working_hoang/config.h"
-	;;
-	i3)
-		choice="$HOME/.config/i3/config"
-	;;
-	polybar)
-		choice="$HOME/.config/polybar/config"
-	;;
-	st)
-		choice="$HOME/config/st/config.h"
-	;;
-	sxhkd)
-		choice="$HOME/.config/sxhkd/sxhkdrc"
-	;;
-	vifm)
-		choice="$HOME/.config/vifm/vifmrc"
-	;;
-	vim)
-		choice="$HOME/.vimrc"
-	;;
-	xresources)
-		choice="$HOME/.Xresources"
-	;;
-	zsh)
-		choice="$HOME/.zshrc"
-	;;
-	*)
-		exit 1
-	;;
+        quit)
+                echo "Program terminated." && exit 1
+        ;;
+        bash)
+                choice="$HOME/.bashrc"
+        ;;
+        bspwm)
+                choice="$HOME/.config/bspwm/bspwmrc"
+        ;;
+        compton)
+                choice="$HOME/.config/compton/compton.conf"
+        ;;
+        dunst)
+                choice="$HOME/.config/dunst/dunstrc"
+        ;;
+        dwm)
+                choice="$HOME/github-clones/dwm_working_hoang/config.h"
+        ;;
+        i3)
+                choice="$HOME/.config/i3/config"
+        ;;
+        polybar)
+                choice="$HOME/.config/polybar/config"
+        ;;
+        st)
+                choice="$HOME/config/st/config.h"
+        ;;
+        sxhkd)
+                choice="$HOME/.config/sxhkd/sxhkdrc"
+        ;;
+        vifm)
+                choice="$HOME/.config/vifm/vifmrc"
+        ;;
+        vim)
+                choice="$HOME/.vimrc"
+        ;;
+        xresources)
+                choice="$HOME/.Xresources"
+        ;;
+        xinit)
+                choice="$HOME/.xinitrc"
+        ;;
+        xprofile)
+                choice="$HOME/.xprofile"
+        ;;
+        zsh)
+                choice="$HOME/.zshrc"
+        ;;
+        *)
+                exit 1
+        ;;
 esac
 st -e vim "$choice"

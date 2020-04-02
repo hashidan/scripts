@@ -1,4 +1,4 @@
 #!/bin/sh
 
-[ $(echo -e "Yes\nNo" | dmenu -i -p "$1") \
+[ $(echo -e "Yes\nNo" | dmenu -c -i -p "$1") \
 == "Yes" ] && $2

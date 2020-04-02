@@ -2,7 +2,7 @@
 
 choices="shutdown\nreboot\nsuspend\nexit wm"
 
-chosen=$(echo -e "$choices" | dmenu -l 4 -i -p "Actions:")
+chosen=$(echo -e "$choices" | dmenu -c -l 4 -i -p "Actions:")
 
 case "$chosen" in
         shutdown) ~/scripts/prompt "Confirm shutdown" "sudo shutdown now" && notify-send "Shutting down...";;

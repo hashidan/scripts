@@ -9,6 +9,7 @@
 file=$(readlink -f "$1")
 dir=$(dirname "$file")
 base="${file%.*}"
+parent="${file%/*}"
 
 cd "$dir" || exit
 
@@ -29,10 +30,14 @@ case "$file" in
 	*\.[rR]md) Rscript -e "require(rmarkdown); rmarkdown::render('$file', quiet=TRUE)" ;;
 	*\.tex) textype "$file" && latexmk -c;;
 	*\.md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
-	*config.h) make && sudo make install ;;
+	*config.h) cd $parent && make && sudo make install ;;
         *\.c) gcc "$file" -o "$base";;
 	*\.py) python "$file" ;;
 	*\.go) go run "$file" ;;
 	*\.sent) setsid sent "$file" 2>/dev/null & ;;
 	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
 esac
+echo $dir
+echo $file
+echo $parent
+echo $base

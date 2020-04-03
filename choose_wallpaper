@@ -1,5 +1,9 @@
 #!/bin/sh
-#
+#   _____   __                               __
+#  / ___ \ / /  ___  ___ _ ___  ___ _ ___   / /___
+# / / _ `// _ \/ _ \/ _ `// _ \/ _ `// _ \ / // _ \
+# \ \_,_//_//_/\___/\_,_//_//_/\_, / \___//_/ \___/
+#  \___/                      /___/
 # select a wallpaper in wallpapers dir using sxiv
 
 chosen=$(ls -d ~/wallpapers/* | sxiv -rtio )

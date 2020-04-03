@@ -1,18 +1,19 @@
 #!/bin/bash
 
-if [[ $1 == *.pdf ]]
-then
-        /usr/bin/mupdf $1
-elif [[ $1 == *.jpg ]]
-then
-        /usr/local/bin/sxiv $1
-elif [[ $1 == *.jpeg ]]
-then
-        /usr/local/bin/sxiv $1
-elif [[ $1 == *.png ]]
-then
-        /usr/local/bin/sxiv $1
-else
-        echo "show: wrong format"
-        exit 1
-fi
+INPUT=$1
+file="${INPUT#*.}"
+
+case "$file" in
+        jpg)
+                sxiv -f $INPUT && exit 0
+        ;;
+        png)
+                sxiv -f $INPUT && exit 0
+        ;;
+        jpeg)
+                sxiv -f $INPUT && exit 0
+        ;;
+        pdf)
+                mupdf $INPUT && exit 0
+        ;;
+esac

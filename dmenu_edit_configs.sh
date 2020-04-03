@@ -14,6 +14,7 @@ bash
 bspwm
 compton
 dunst
+dmenu
 dwm
 i3
 polybar
@@ -27,7 +28,7 @@ xprofile
 zsh
 quit")
 
-choice=$(echo -e "${options[@]}" | dmenu -i -nb '#282828' -nf '#ebdbb2' -p 'Edit config file: ')
+choice=$(echo -e "${options[@]}" | dmenu -i -fn 'JetBrainsMono Medium:style=Medium:size=11' -nb '#282828' -nf '#ebdbb2' -p 'Edit config file: ')
 
 case "$choice" in
         quit)
@@ -44,6 +45,9 @@ case "$choice" in
         ;;
         dunst)
                 choice="$HOME/.config/dunst/dunstrc"
+        ;;
+        dmenu)
+                choice="$HOME/github-clones/dmenu/config.h"
         ;;
         dwm)
                 choice="$HOME/github-clones/dwm_working_hoang/config.h"

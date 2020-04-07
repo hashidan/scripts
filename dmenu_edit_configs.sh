@@ -17,6 +17,7 @@ dunst
 dmenu
 dwm
 i3
+picom
 polybar
 st
 sxhkd
@@ -54,6 +55,9 @@ case "$choice" in
         ;;
         i3)
                 choice="$HOME/.config/i3/config"
+        ;;
+        picom)
+                choice="$HOME/.config/picom.conf"
         ;;
         polybar)
                 choice="$HOME/.config/polybar/config"

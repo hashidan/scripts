@@ -60,7 +60,7 @@ case "$choice" in
                 choice="$HOME/.config/picom.conf"
         ;;
         polybar)
-                choice="$HOME/.config/polybar/config"
+                choice="$HOME/.config/polybar/"
         ;;
         st)
                 choice="$HOME/github-clones/st/config.h"

@@ -1,0 +1,119 @@
+#!/bin/bash
+
+declare options=("
+24bit-color.sh
+choose_wallpaper
+color-pane
+colortest
+compiler
+currently_playing.sh
+dmenu_edit_configs.sh
+dmenu_emoji
+dmenu_pass
+dmenu_scripts
+dmenu_umount
+dwmbar
+emojis
+openweathermap
+polybar-forecast
+poweroffmenu
+prompt
+run_scripts
+search
+setbg
+show
+test_color
+updates-arch-combined
+usb_wakeup
+vifmimg
+vifmrun
+")
+
+choice=$(echo -e "${options[@]}" | dmenu -i -p 'Edit scripts: ')
+case "$choice" in
+        quit)
+                echo "Program terminated." && exit 1
+        ;;
+        24bit-color.sh)
+                choice="$HOME/scripts/24bit-color.sh"
+        ;;
+        choose_wallpaper)
+                choice="$HOME/scripts/choose_wallpaper"
+        ;;
+        color-pane)
+                choice="$HOME/scripts/color-pane"
+        ;;
+        colortest)
+                choice="$HOME/scripts/colortest"
+        ;;
+        compiler)
+                choice="$HOME/scripts/compiler"
+        ;;
+        currently_playing.sh)
+                choice="$HOME/scripts/currently_playing.sh"
+        ;;
+        dmenu_edit_configs.sh)
+                choice="$HOME/scripts/dmenu_edit_configs.sh"
+        ;;
+        dmenu_emoji)
+                choice="$HOME/scripts/dmenu_emoji"
+        ;;
+        dmenu_pass)
+                choice="$HOME/scripts/dmenu_pass"
+        ;;
+        dmenu_scripts)
+                choice="$HOME/scripts/dmenu_scripts"
+        ;;
+        dmenu_umount)
+                choice="$HOME/scripts/dmenu_umount"
+        ;;
+        dwmbar)
+                choice="$HOME/scripts/dwmbar"
+        ;;
+        emojis)
+                choice="$HOME/scripts/emojis"
+        ;;
+        openweathermap)
+                choice="$HOME/scripts/openweathermap"
+        ;;
+        polybar-forecast)
+                choice="$HOME/scripts/polybar-forecast"
+        ;;
+        poweroffmenu)
+                choice="$HOME/scripts/poweroffmenu"
+        ;;
+        prompt)
+                choice="$HOME/scripts/prompt"
+        ;;
+        run_scripts)
+                choice="$HOME/scripts/run_scripts"
+        ;;
+        search)
+                choice="$HOME/scripts/search"
+        ;;
+        setbg)
+                choice="$HOME/scripts/setbg"
+        ;;
+        show)
+                choice="$HOME/scripts/show"
+        ;;
+        test_color)
+                choice="$HOME/scripts/test_color"
+        ;;
+        updates-arch-combined)
+                choice="$HOME/scripts/updates-arch-combined"
+        ;;
+        usb_wakeup)
+                choice="$HOME/scripts/usb_wakeup"
+        ;;
+        vifmimg)
+                choice="$HOME/scripts/vifmimg"
+        ;;
+        vifmrun)
+                choice="$HOME/scripts/vifmrun"
+        ;;
+        *)
+                exit 1
+        ;;
+esac
+st -e vim "$choice"

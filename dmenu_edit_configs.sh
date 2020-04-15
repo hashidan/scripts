@@ -12,15 +12,14 @@
 declare options=("
 bash
 bspwm
-compton
 dunst
 dmenu
 dwm
-i3
 picom
 polybar
 st
 sxhkd
+sxiv
 vifm
 vim
 xresources
@@ -41,9 +40,6 @@ case "$choice" in
         bspwm)
                 choice="$HOME/.config/bspwm/bspwmrc"
         ;;
-        compton)
-                choice="$HOME/.config/compton/compton.conf"
-        ;;
         dunst)
                 choice="$HOME/.config/dunst/dunstrc"
         ;;
@@ -52,9 +48,6 @@ case "$choice" in
         ;;
         dwm)
                 choice="$HOME/github-clones/dwm_working_hoang/config.h"
-        ;;
-        i3)
-                choice="$HOME/.config/i3/config"
         ;;
         picom)
                 choice="$HOME/.config/picom.conf"
@@ -67,6 +60,9 @@ case "$choice" in
         ;;
         sxhkd)
                 choice="$HOME/.config/sxhkd/sxhkdrc"
+        ;;
+        sxiv)
+                choice="$HOME/github-clones/sxiv/config.h"
         ;;
         vifm)
                 choice="$HOME/.config/vifm/vifmrc"

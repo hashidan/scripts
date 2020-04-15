@@ -1,0 +1,58 @@
+#!/bin/bash
+
+declare options=("
+quit
+24bit-color.sh
+choose_wallpaper
+color-pane
+colortest
+dmenu_pass
+dmenu_umount
+search
+setbg
+test_color
+usb_wakeup
+")
+
+# choice=$(echo -e "${options[@]}" | dmenu -i -p 'Run scripts: ')
+choice=$(echo -e "${options[@]}" | dmenu -i -fn 'JetBrainsMono Medium:style=Medium:size=11' -nb '#282828' -nf '#ebdbb2' -p 'Edit config file: ')
+
+case "$choice" in
+        quit)
+                echo "Program terminated." && exit 1
+        ;;
+        24bit-color.sh)
+                choice="$HOME/scripts/24bit-color.sh"
+        ;;
+        choose_wallpaper)
+                choice="$HOME/scripts/choose_wallpaper"
+        ;;
+        color-pane)
+                choice="$HOME/scripts/color-pane"
+        ;;
+        colortest)
+                choice="$HOME/scripts/colortest"
+        ;;
+        dmenu_pass)
+                choice="$HOME/scripts/dmenu_pass"
+        ;;
+        dmenu_umount)
+                choice="$HOME/scripts/dmenu_umount"
+        ;;
+        search)
+                choice="$HOME/scripts/search"
+        ;;
+        setbg)
+                choice="$HOME/scripts/setbg"
+        ;;
+        test_color)
+                choice="$HOME/scripts/test_color"
+        ;;
+        usb_wakeup)
+                choice="$HOME/scripts/usb_wakeup"
+        ;;
+        *)
+                exit 1
+        ;;
+esac
+#st -e sh "$choice"

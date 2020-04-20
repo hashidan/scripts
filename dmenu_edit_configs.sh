@@ -10,6 +10,7 @@
 # whatev
 
 declare options=("
+alacritty
 bash
 bspwm
 dunst
@@ -33,6 +34,9 @@ choice=$(echo -e "${options[@]}" | dmenu -i -fn 'JetBrainsMono Medium:style=Medi
 case "$choice" in
         quit)
                 echo "Program terminated." && exit 1
+        ;;
+        alacritty)
+                choice="$HOME/.config/alacritty/alacritty.yml"
         ;;
         bash)
                 choice="$HOME/.bashrc"

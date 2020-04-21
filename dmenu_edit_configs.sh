@@ -18,6 +18,7 @@ dmenu
 dwm
 picom
 polybar
+nvim
 st
 sxhkd
 sxiv
@@ -58,6 +59,9 @@ case "$choice" in
         ;;
         polybar)
                 choice="$HOME/.config/polybar/"
+        ;;
+        nvim)
+            choice="$HOME/.config/nvim/init.vim"
         ;;
         st)
                 choice="$HOME/github-clones/st/config.h"

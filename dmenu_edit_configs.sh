@@ -94,4 +94,4 @@ case "$choice" in
                 exit 1
         ;;
 esac
-st -e vim "$choice"
+st -e nvim "$choice"

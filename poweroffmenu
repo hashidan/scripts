@@ -5,8 +5,8 @@ choices="shutdown\nreboot\nsuspend\nexit wm"
 chosen=$(echo -e "$choices" | dmenu -c -l 4 -i -p " :")
 
 case "$chosen" in
-        shutdown) ~/scripts/prompt "Confirm shutdown" "sudo openrc-shutdown -p 1 &" && notify-send "Shutting down...";;
-        reboot) ~/scripts/prompt "Confirm reboot" "sudo reboot now" && notify-send "Rebooting now...";;
-        suspend) sudo systemctl suspend && notify-send "Suspending...";;
+        shutdown) ~/scripts/prompt "Confirm shutdown" "sudo openrc-shutdown -p now &" && notify-send "Shutting down...";;
+        reboot) ~/scripts/prompt "Confirm reboot" "sudo reboot" && notify-send "Rebooting now...";;
+        suspend) sudo pm-suspend && notify-send "Suspending...";;
         exit\ wm) killall bspwm; killall qtile; killall spectrwm;;
 esac

@@ -18,6 +18,7 @@ dmenu
 dwm
 picom
 polybar
+kitty
 nvim
 st
 sxhkd
@@ -33,65 +34,68 @@ quit")
 choice=$(echo -e "${options[@]}" | dmenu -i -fn 'JetBrainsMono Medium:style=Medium:size=11' -nb '#282828' -nf '#ebdbb2' -p 'Edit config file: ')
 
 case "$choice" in
-        quit)
-                echo "Program terminated." && exit 1
+    quit)
+        echo "Program terminated." && exit 1
         ;;
-        alacritty)
-                choice="$HOME/.config/alacritty/alacritty.yml"
+    alacritty)
+        choice="$HOME/.config/alacritty/alacritty.yml"
         ;;
-        bash)
-                choice="$HOME/.bashrc"
+    bash)
+        choice="$HOME/.bashrc"
         ;;
-        bspwm)
-                choice="$HOME/.config/bspwm/bspwmrc"
+    bspwm)
+        choice="$HOME/.config/bspwm/bspwmrc"
         ;;
-        dunst)
-                choice="$HOME/.config/dunst/dunstrc"
+    dunst)
+        choice="$HOME/.config/dunst/dunstrc"
         ;;
-        dmenu)
-                choice="$HOME/github-clones/dmenu/config.h"
+    dmenu)
+        choice="$HOME/github-clones/dmenu/config.h"
         ;;
-        dwm)
-                choice="$HOME/github-clones/dwm_working_hoang/config.h"
+    dwm)
+        choice="$HOME/github-clones/dwm_working_hoang/config.h"
         ;;
-        picom)
-                choice="$HOME/.config/picom.conf"
+    kitty)
+        choice="$HOME/.config/kitty/kitty.conf"
         ;;
-        polybar)
-                choice="$HOME/.config/polybar/"
+    picom)
+        choice="$HOME/.config/picom.conf"
         ;;
-        nvim)
-            choice="$HOME/.config/nvim/init.vim"
+    polybar)
+        choice="$HOME/.config/polybar/"
         ;;
-        st)
-                choice="$HOME/github-clones/st/config.h"
+    nvim)
+        choice="$HOME/.config/nvim/init.vim"
         ;;
-        sxhkd)
-                choice="$HOME/.config/sxhkd/sxhkdrc"
+    st)
+        choice="$HOME/github-clones/st/config.h"
         ;;
-        sxiv)
-                choice="$HOME/github-clones/sxiv/config.h"
+    sxhkd)
+        choice="$HOME/.config/sxhkd/sxhkdrc"
         ;;
-        vifm)
-                choice="$HOME/.config/vifm/vifmrc"
+    sxiv)
+        choice="$HOME/github-clones/sxiv/config.h"
         ;;
-        vim)
-                choice="$HOME/.vimrc"
+    vifm)
+        choice="$HOME/.config/vifm/vifmrc"
         ;;
-        xresources)
-                choice="$HOME/.Xresources"
+    vim)
+        choice="$HOME/.vimrc"
         ;;
-        xinit)
-                choice="$HOME/.xinitrc"
+    xresources)
+        choice="$HOME/.Xresources"
         ;;
-        xprofile)
-                choice="$HOME/.xprofile"
+    xinit)
+        choice="$HOME/.xinitrc"
         ;;
-        zsh)
-                choice="$HOME/.zshrc"
+    xprofile)
+        choice="$HOME/.xprofile"
         ;;
-        *)
-                exit 1
+    zsh)
+        choice="$HOME/.zshrc"
+        ;;
+    *)
+        exit 1
         ;;
 esac
-st -e nvim "$choice"
+alacritty -e nvim "$choice"

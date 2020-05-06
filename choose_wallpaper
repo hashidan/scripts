@@ -1,4 +1,4 @@
-
+#!/bin/bash
 #   _____   __                               __
 #  / ___ \ / /  ___  ___ _ ___  ___ _ ___   / /___
 # / / _ `// _ \/ _ \/ _ `// _ \/ _ `// _ \ / // _ \
@@ -6,8 +6,8 @@
 #  \___/                      /___/
 # select a wallpaper in wallpapers dir using sxiv
 
-chosen=$(ls -d ~/wallpapers/* | sxiv -rtio )
+chosen=$(find ~/wallpapers/*[^.md] | sxiv -rtio )
 
 [ "$chosen" != "" ] || exit
 
-setbg $chosen
+setbg "$chosen"

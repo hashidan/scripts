@@ -98,4 +98,4 @@ case "$choice" in
         exit 1
         ;;
 esac
-alacritty -e nvim "$choice"
+st -e nvim "$choice"

@@ -5,15 +5,15 @@ file="${INPUT#*.}"
 
 case "$file" in
         jpg)
-                sxiv -f $INPUT && exit 0
+                sxiv -f "$INPUT" && exit 0
         ;;
         png)
-                sxiv -f $INPUT && exit 0
+                sxiv -f "$INPUT" && exit 0
         ;;
         jpeg)
-                sxiv -f $INPUT && exit 0
+                sxiv -f "$INPUT" && exit 0
         ;;
         pdf)
-                mupdf $INPUT && exit 0
+                mupdf "$INPUT" && exit 0
         ;;
 esac

@@ -9,16 +9,16 @@ hdd() {
 
 ## RAM
 mem() {
-    mem=`free | awk '/Mem/ {printf "%dM/%dM\n", $3 / 1024.0, $2 / 1024.0 }'`
+    mem=$(free | awk '/Mem/ {printf "%dM/%dM\n", $3 / 1024.0, $2 / 1024.0 }')
     echo -e "$mem"
 }
 
 ## CPU
 cpu() {
-    read cpu a b c previdle rest < /proc/stat
+    read -r cpu a b c previdle rest < /proc/stat
     prevtotal=$((a+b+c+previdle))
     sleep 0.5
-    read cpu a b c idle rest < /proc/stat
+    read -r cpu a b c idle rest < /proc/stat
     total=$((a+b+c+idle))
     cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
     echo -e "CPU: $cpu%"
@@ -26,7 +26,7 @@ cpu() {
 
 ## VOLUME
 vol() {
-    vol=`amixer get Master | awk -F'[][]' 'END{ print $4":"$2 }' | sed 's/on://g'`
+    vol=$(amixer get Master | awk -F'[][]' 'END{ print $4":"$2 }' | sed 's/on://g')
     echo -e "VOL: $vol"
 }
 

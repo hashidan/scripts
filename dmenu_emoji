@@ -3,7 +3,8 @@
 # The famous "get a menu of emojis to copy" script.
 
 # Must have xclip installed to even show menu.
-chosen=$(cut -d ';' -f1 ~/scripts/emojis | dmenu -i -l 20 | sed "s/ .*//")
+#chosen=$(cut -d ';' -f1 ~/scripts/emojis | dmenu -i -l 20 | sed "s/ .*//")
+chosen=$(cut -d ';' -f1 ~/scripts/emojis | rofi -dmenu -i -l 20 | sed "s/ .*//")
 
 [ "$chosen" != "" ] || exit 0
 

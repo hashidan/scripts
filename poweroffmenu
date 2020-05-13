@@ -8,5 +8,5 @@ case "$chosen" in
         shutdown) ~/scripts/prompt "Confirm shutdown" "sudo openrc-shutdown -p now &" && notify-send "Shutting down...";;
         reboot) ~/scripts/prompt "Confirm reboot" "sudo reboot" && notify-send "Rebooting now...";;
         suspend) sudo pm-suspend || sudo systemctl suspend && notify-send "Suspending..." && i3lock-fancy ;;
-        exit\ wm) killall bspwm || killall qtile || killall spectrwm;;
+        exit\ wm) killall bspwm || killall dwm || killall spectrwm;;
 esac

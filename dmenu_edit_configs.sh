@@ -20,6 +20,7 @@ picom
 polybar
 kitty
 nvim
+spectrwm
 st
 sxhkd
 sxiv
@@ -53,7 +54,7 @@ case "$choice" in
         choice="$HOME/github-clones/dmenu/config.h"
         ;;
     dwm)
-        choice="$HOME/github-clones/dwm_working_hoang/config.h"
+        choice="$HOME/github-clones/dwm/config.h"
         ;;
     kitty)
         choice="$HOME/.config/kitty/kitty.conf"
@@ -66,6 +67,9 @@ case "$choice" in
         ;;
     nvim)
         choice="$HOME/.config/nvim/init.vim"
+        ;;
+    spectrwm)
+        choice="$HOME/.config/spectrwm/spectrwm.conf"
         ;;
     st)
         choice="$HOME/github-clones/st/config.h"

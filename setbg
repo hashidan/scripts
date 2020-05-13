@@ -1,12 +1,12 @@
 #!/bin/sh
+bgloc="${XDG_DATA_HOME:-$HOME/.local/share/}/bg"
 
-[ -f "$1" ] && cp "$1" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Wallpaper changed."
-[ -d "$1" ] && cp "$(find "$1" -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -type f | shuf -n 1)" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Random Wallpaper chosen."
+[ -f "$1" ] && ln -sf "$(readlink -f "$1")" "$bgloc" && notify-send -i "$bgloc" "Changing wallpaper..."
 
-#type wal >/dev/null 2>&1 && { wal -c
-#	wal -s -i ~/.config/wall.png -o ~/.config/wal/postrun
-#	xsetroot -name "fsignal:xrdb"
-#	killall dwmblocks
-#	setsid dwmblocks >/dev/null & } >/dev/null 2>&1
+[ -d "$1" ] && ln -sf "$(find "$(readlink -f "$1")" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$bgloc" && notify-send -i "$bgloc" "Random Wallpaper chosen."
 
-xwallpaper --zoom ~/.config/wall.png
+# If pywal is installed, use it.
+#wal -s -i "$(readlink -f "$bgloc")" -o "${XDG_CONFIG_HOME:-$HOME/.config}/wal/postrun" >/dev/null 2>&1
+
+pidof dwm >/dev/null && xdotool key super+F12
+xwallpaper --zoom "$bgloc"

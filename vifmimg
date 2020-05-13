@@ -9,16 +9,16 @@ function draw() {
     > "$FIFO_UEBERZUG"
 }
 
-function font_preview() {
-  # if no preview found, generate one
-  if [ ! -f "/tmp${PWD}/$6.png" ]; then
-    fontpreview -i "$6" -o "/tmp${PWD}/$6.png"
-  fi
-  declare -p -A cmd=([action]=add [identifier]="$ID_PREVIEW"
-                     [x]="$2" [y]="$3" [width]="$4" [height]="$5" \
-                     [path]="/tmp${PWD}/$6.png") \
-    > "$FIFO_UEBERZUG"
-}
+#function font_preview() {
+#  # if no preview found, generate one
+#  if [ ! -f "/tmp${PWD}/$6.png" ]; then
+#    fontpreview -i "$6" -o "/tmp${PWD}/$6.png"
+#  fi
+#  declare -p -A cmd=([action]=add [identifier]="$ID_PREVIEW"
+#                     [x]="$2" [y]="$3" [width]="$4" [height]="$5" \
+#                     [path]="/tmp${PWD}/$6.png") \
+#    > "$FIFO_UEBERZUG"
+#}
 
 function pdf_preview() {
   # if no preview found, generate one

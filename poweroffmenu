@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 choices="shutdown\nreboot\nsuspend\nexit wm"
 

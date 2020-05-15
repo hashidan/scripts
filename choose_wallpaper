@@ -6,7 +6,7 @@
 #  \___/                      /___/
 # select a wallpaper in wallpapers dir using sxiv
 
-chosen=$(find ~/wallpapers/*[^.md] | sxiv -rtio )
+chosen=$(find ~/wallpapers/*[^.md] | sxiv -rtio -g 1000x800 )
 
 [ "$chosen" != "" ] || exit
 

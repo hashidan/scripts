@@ -1,12 +1,13 @@
 #!/bin/zsh
 
-choices="shutdown\nreboot\nsuspend\nexit wm"
+choices="shutdown\nreboot\nsuspend\nrenew dwm\nexit wm"
 
-chosen=$(echo -e "$choices" | dmenu -c -l 4 -i -p " :")
+chosen=$(echo -e "$choices" | dmenu -c -l 5 -i -p " :")
 
 case "$chosen" in
         shutdown) ~/scripts/prompt "Confirm shutdown" "sudo openrc-shutdown -p now &" && notify-send "Shutting down...";;
         reboot) ~/scripts/prompt "Confirm reboot" "sudo reboot" && notify-send "Rebooting now...";;
-        suspend) sudo pm-suspend || sudo systemctl suspend && notify-send "Suspending..." && i3lock-fancy ;;
+        suspend) sudo pm-suspend || sudo systemctl suspend && notify-send "Suspending..." & i3lock-fancy ;;
+        renew\ dwm) kill -HUP $(pidof -s dwm);;
         exit\ wm) killall bspwm || killall dwm || killall spectrwm;;
 esac

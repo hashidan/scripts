@@ -32,7 +32,7 @@ xprofile
 zsh
 quit")
 
-choice=$(echo -e "${options[@]}" | dmenu -i -fn 'JetBrainsMono Medium:style=Medium:size=11' -nb '#282828' -nf '#ebdbb2' -p 'Edit config file: ')
+choice=$(echo -e "${options[@]}" | dmenu -i -p 'Edit config file: ')
 
 case "$choice" in
     quit)

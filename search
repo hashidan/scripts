@@ -2,14 +2,14 @@
 
 SEARCH_ENGINE="https://duckduckgo.com/?q="
 
-q="$(echo | dmenu -p "Search the Web:")"
+q="$(echo | dmenu -c -p "Search the Web:")"
 
 if [ -z "$q" ]; then
     exit 0
 elif [[ $q =~ ^https?:\/\/ ]]; then
-        firefox "${q}"
+        brave "${q}"
 elif [[ $q =~ (\.co\.uk|\.com|\.net|.io)$ ]]; then
-        firefox "${q}"
+        brave "${q}"
 else
-        firefox "${SEARCH_ENGINE}${q}"
+        brave "${SEARCH_ENGINE}${q}"
 fi

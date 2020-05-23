@@ -1,0 +1,5 @@
+#!/bin/bash
+
+choice=$(echo "foo" | dmenu -p "Search DDG: " | sed "s/ /+/g")
+
+brave ("https://duckduckgo.com/?q=" + "$choice")
